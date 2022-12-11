@@ -1,0 +1,518 @@
+@import url( reset.css );
+
+body {
+  font-family: nanumgothic, sans-serif;
+	font-size: 16px;
+	color: #212121;
+}
+
+#container {
+	height: 100%;
+	background-color: rgba(27, 104, 91, 0.3);
+}
+
+.content {
+  width: 576px;
+	height: 864px;
+	background-color: #1b685b;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -432px 0 0 -288px;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+@media (orientation: landscape) { /* 가로 */
+
+	@media (max-width: 575px) {
+	
+		.content {
+			width: 100vw;
+			height: calc( 100vw + (100vw * 0.5) );
+			position: unset;
+			margin: 0;
+		}
+		
+	}
+
+	@media (max-height: 863px) {
+	
+		.content {
+			height: 100vh;
+			position: unset;
+			margin: 0 auto;
+		}
+		
+	}
+	
+}
+
+@media (orientation: portrait) { /* 세로 */
+
+	@media (max-width: 575px) {
+	
+		.content {
+			width: 100vw;
+			height: 100vh;
+			position: unset;
+			margin: 0;
+		}
+		
+	}
+
+}
+
+.calendar {
+	width: 100%;
+	height: 60%;
+	background-color: #ffffff;
+	border-radius: 0 0 35px 35px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	padding: 7% 5.5%;
+}
+
+.header {
+	overflow: hidden;
+}
+
+#today {
+	width: 55px;
+	height: 36px;
+	font-size: 14px;
+	color: #707070;
+	font-weight: bold;
+	float: left;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+button {
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.currentDate {
+	width: 185px;
+	position: absolute;
+	left: 50%;
+	margin-left: -92.5px;
+	text-align: center;
+}
+
+.currentDate > button {
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	background-color: #e0e0e0;
+	background-size: 6px 9px;
+	margin: 9.5px 0;
+}
+
+.currentDate > button:first-child {
+	background-image: url('/image/previous.png');
+	float: left;
+}
+
+.currentDate > button:nth-child(3) {
+	background-image: url('/image/next.png');
+	float: right;
+}
+
+.currentDate > div:nth-child(2) {
+	font-size: 24px;
+	color: #707070;
+	font-weight: bold;
+	display: inline-block;
+	cursor: pointer;
+}
+
+#moveDate {
+	display: none;
+	width: 280px;
+	height: 215px;
+	border-radius: 5px;
+	background-color: #1b685b;
+	box-shadow: 0 5px 15px rgba(9, 57, 49, 0.6);
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin-left: -140px;
+	margin-top: 48px;
+	padding: 23px;
+	z-index: 1;
+}
+
+#moveDate > div {
+	overflow: hidden;
+}
+
+.yearInput {
+	float: left;
+	position: relative;
+}
+
+.yearInput > input {
+	background-color: transparent;
+	border: none;
+	color: #ffffff;
+	font-size: 26px;
+	width: 80px;
+	float: left;
+}
+
+.yearInput > button {
+	display: none;
+	width: 8px;
+	height: 8px;
+	background-image: url('/image/year_delete.png');
+	background-size: 8px 8px;
+	float: left;
+	margin: 15.5px 0;
+}
+
+.yearInput > div {
+	width: 0%;
+	height: 1px;
+	background-color: #6b9d94;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	transition: 0.3s;
+}
+
+#moveYear:focus ~ div {
+	width: 100%;
+}
+
+#moveBtn {
+	width: 48px;
+	padding: 11px 0;
+	float: right;
+}
+
+#moveBtn > button {
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	background-color: #377a6f;
+	background-size: 6px 9px;
+}
+
+#moveBtn > button:first-child {
+	background-image: url('/image/year_prev.png');
+	float: left;
+}
+
+#moveBtn > button:last-child {
+	background-image: url('/image/year_next.png');
+	float: right;
+}
+
+#moveDate > ul {
+	margin-top: 20px;
+}
+
+#moveDate > ul > li {
+	width: 29px;
+	float: left;
+	cursor: pointer;
+	font-size: 20px;
+	color: #ffffff;
+	margin: 10px 12px 10px 0;
+}
+
+#moveDate > ul > li:nth-child(6),
+#moveDate > ul > li:last-child {
+	margin-right: 0;
+}
+
+.btn {
+	float: right;
+	width: 85px
+}
+
+.btn > button {
+	width: 36px;
+	height: 36px;
+	background-size: 16px 16px;
+	float: left;
+}
+
+.btn > button:last-child {
+	float: right;
+}
+
+#search {
+	background-image: url('/image/search.png');
+}
+
+#openWrite {
+	background-image: url('/image/add.png');
+}
+
+.tbl {
+	margin-top: 10%;
+}
+
+.tbl > table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+.tbl > table > thead > tr > th {
+	font-size: 13px;
+	font-weight: bold;
+	color: #999999;
+	padding-bottom: 1%;
+}
+
+.tbl > table > tbody > tr > td {
+	font-size: 16px;
+	font-weight: bold;
+	color: #212121;
+	text-align: center;
+	padding-top: 3%;
+}
+
+.tbl > table > tbody > tr > td > div {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	cursor: pointer;
+	border-radius: 50%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.tbl > table > tbody > tr > td > div > div {
+	position: absolute;
+	left: 50%;
+  transform: translate(-50%, 0);
+	bottom: 5px;
+	height: 4px;
+}
+
+.select > div > span {
+	background-color: #c4d8d5 !important;
+}
+
+.tbl > table > tbody > tr > td > div > div > span {
+	float: left;
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background-color: #1b685b;
+	margin-left: 2px;
+}
+
+.tbl > table > tbody > tr > td > div > div > span:first-child {
+	margin-left: 0;
+}
+
+.near {
+	color: #cccccc;
+	font-weight: normal;
+}
+
+.today {
+	background-color: #edf3f2;
+}
+
+.select {
+	background-color: #1b685b;
+	color: #ffffff;
+}
+
+.schedule {
+	width: 100%;
+	height: 40%;
+	padding: 3% 5.5% 7%;
+}
+
+.schedule > p {
+	font-size: 13.5px;
+	color: rgba(255, 255, 255, 0.45);
+	letter-spacing: 0.5px;
+}
+
+.schedule > ul {
+	height: calc(100% - 21px);
+  overflow: auto;
+}
+
+.schedule > ul::-webkit-scrollbar {
+	width: 6px;
+}
+
+.schedule > ul::-webkit-scrollbar-track {
+	border-radius: 3px;
+	background-color: #377a6f;
+}
+
+.schedule > ul::-webkit-scrollbar-thumb {
+	border-radius: 3px;
+	background-color: #5b9289;
+}
+
+.schedule > ul > li {
+	padding: 4.5% 2%;
+	border-bottom: 2px dotted rgba(255, 255, 255, 0.15);
+	color: #ffffff;
+}
+
+.schedule > ul > li > div {
+	cursor: pointer;
+}
+
+.schedule > ul > li > div > span {
+	font-size: 15px;
+	color: rgba(255, 255, 255, 0.45);
+	float: right;
+	width: 20%;
+}
+
+.schedule > ul > li > div > span > i {
+	font-size: 13.5px;
+}
+
+.schedule > ul > li > div > i {
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.45);
+	display: block;
+}
+
+#write {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #ffffff;
+	padding: 8.5%;
+}
+
+.writeBtn button {
+	font-size: 14.5px;
+	color: #707070;
+	font-weight: bold;
+	letter-spacing: 0.8px;
+	height: 28px;
+	line-height: 28px;
+}
+
+.writeBtn > div {
+	float: right;
+}
+
+.writeBtn > div > button {
+	width: 72px;
+	border-radius: 3px;
+	float: left;
+}
+
+.writeBtn > div > button:first-child {
+	background-color: #e0e0e0;
+	margin-right: 5px;
+}
+
+.writeBtn > div > button:last-child {
+	background-color: #1b685b;
+	color: #ffffff;
+	font-weight: normal;
+}
+
+.writeForm > p {
+	font-size: 12px;
+	color: #707070;
+	margin-top: 55px;
+}
+
+.writeForm > p:nth-child(3) {
+	margin-top: 40px;
+}
+
+.writeForm > p > span,
+.writeForm > p > span > input {
+	float: right;
+}
+
+.writeForm > p > span > input {
+	margin: 2.5px 0 0 3px;
+}
+
+.writeForm > input[type="text"],
+.writeForm > textarea,
+.time,
+.writeForm > select {
+	width: 100%;
+	border: 1px solid #dde8e7;
+	border-radius: 5px;
+	height: 40px;
+	font-size: 14px;
+	padding: 0 10px;
+}
+
+.writeForm > input[type="text"] {
+	font-size: 16.5px;
+}
+
+.writeForm > textarea {
+	height: 100px;
+	resize: none;
+}
+
+.writeForm input:disabled,
+.writeForm textarea:disabled,
+.disabled {
+	background: #f8fafa;
+	border: none;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+}
+
+.time {
+	font-size: 15px;
+	position: relative;
+}
+
+.time > div:first-child {
+	float: left;
+}
+
+.time > div:last-child {
+	float: right;
+}
+
+.time input {
+	width: 55px;
+}
+
+.time input,
+.time select {
+	height: 38px;
+	border: none;
+	vertical-align: top;
+	background-color: transparent;
+}
+
+.time span {
+	line-height: 38px;
+}
+
+.not {
+	color: #d20000;
+}
+
+.not::after {
+	content: '';
+	display: block;
+	width: calc( 100% - 16px );
+	height: 1px;
+	background-color: #d20000;
+	position: absolute;
+	left: 8px;
+	top: 20px;
+}

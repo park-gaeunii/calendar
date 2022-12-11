@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calendar</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="container">
+    <div class="content">
+
+      <div class="calendar">
+  
+        <div class="header">
+          <button id="today">TODAY</button>
+
+          <div class="currentDate">
+            <button id="previousMonth"></button>
+            <div id="yearMonth"></div>
+            <button id="nextMonth"></button>
+
+            <div id="moveDate">
+              <div>
+                <div class="yearInput">
+                  <input id="moveYear" type="text" maxlength="4" />
+                  <button id="textDelete"></button>
+                  <div></div>
+                </div>
+                <div id="moveBtn">
+                  <button id="previousYear"></button>
+                  <button id="nextYear"></button>
+                </div>
+              </div>
+              <ul>
+                <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+                <li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="btn">
+            <button id="search"></button>
+            <button id="openWrite"></button>
+          </div>
+        </div>
+
+        <div class="tbl">
+          <table id="calendar">
+            <thead>
+              <tr>
+                <th>S</th>
+                <th>M</th>
+                <th>T</th>
+                <th>W</th>
+                <th>T</th>
+                <th>F</th>
+                <th>S</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+  
+      </div>
+  
+      <div class="schedule">
+        <p id="scheduleDate"></p>
+        <ul id="scheduleList"></ul>
+      </div>
+
+      <div id="write">
+        <div class="writeBtn">
+          <button id="cancel">CANCEL</button>
+          <div>
+            <button id="delete">DELETE</button>
+            <button id="save">SAVE</button>
+          </div>
+        </div>
+
+        <div class="writeForm">
+          <p>일정 이름</p>
+          <input id="title" type="text" />
+          <p>메모</p>
+          <textarea id="memo"></textarea>
+          <p>시작
+            <span class="allday">
+              종일
+              <input id="allday" type="checkbox">
+            </span>
+          </p>
+          <div class="time">
+            <div>
+              <input id="startYear" type="number" />
+              <span>/</span>
+              <select id="startMonth"></select>
+              <span>/</span>
+              <select id="startDay"></select>
+            </div>
+            <div>
+              <select id="startHour"></select>
+              <span>:</span>
+              <select id="startMinute"></select>
+            </div>
+          </div>
+          <p>종료</p>
+          <div id="lastDateWrap" class="time">
+            <div>
+              <input id="lastYear" type="number" />
+              <span>/</span>
+              <select id="lastMonth"></select>
+              <span>/</span>
+              <select id="lastDay"></select>
+            </div>
+            <div>
+              <select id="lastHour"></select>
+              <span>:</span>
+              <select id="lastMinute"></select>
+            </div>
+          </div>
+          <!-- <p>반복</p>
+          <select id="repeat">
+            <option value="none">---</option>
+            <option value="day">매일</option>
+            <option value="week">매주</option>
+            <option value="month">매월</option>
+            <option value="year">매년</option>
+            <option value="lunarCalendar">매년 음력</option>
+          </select> -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="/js/init.js"></script>
+</body>
+</html>
